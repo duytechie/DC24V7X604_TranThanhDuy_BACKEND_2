@@ -1,0 +1,19 @@
+services:
+  mongodb:
+    image: mongo:latest
+    platform: linux/arm64/v8
+    container_name: mongodb-community
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    env_file:
+      - .env
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_INITDB_DATABASE}
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
