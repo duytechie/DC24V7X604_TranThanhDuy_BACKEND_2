@@ -1,0 +1,32 @@
+{
+  "name": "dc24v7x604_tranthanhduy_backend_1",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/duytechie/DC24V7X604_TranThanhDuy_BACKEND_1#readme",
+  "bugs": {
+    "url": "https://github.com/duytechie/DC24V7X604_TranThanhDuy_BACKEND_1/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/duytechie/DC24V7X604_TranThanhDuy_BACKEND_1.git"
+  },
+  "license": "ISC",
+  "author": "Duy Tran",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-vue": "^10.7.0",
+    "globals": "^17.2.0",
+    "prettier": "^3.8.1"
+  }
+}

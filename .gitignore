@@ -1,0 +1,9 @@
+node_modules/
+*.aux
+*.lof
+*.log
+*.pdf
+*.toc
+*.out
+
+.DS_Store
