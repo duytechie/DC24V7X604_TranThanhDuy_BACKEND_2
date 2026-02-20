@@ -1,14 +1,14 @@
 {
-  "name": "dc24v7x604_tranthanhduy_backend_1",
+  "name": "dc24v7x604_tranthanhduy_backend_2",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/duytechie/DC24V7X604_TranThanhDuy_BACKEND_1#readme",
+  "homepage": "https://github.com/duytechie/DC24V7X604_TranThanhDuy_BACKEND_2#readme",
   "bugs": {
-    "url": "https://github.com/duytechie/DC24V7X604_TranThanhDuy_BACKEND_1/issues"
+    "url": "https://github.com/duytechie/DC24V7X604_TranThanhDuy_BACKEND_2/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/duytechie/DC24V7X604_TranThanhDuy_BACKEND_1.git"
+    "url": "git+https://github.com/duytechie/DC24V7X604_TranThanhDuy_BACKEND_2.git"
   },
   "license": "ISC",
   "author": "Duy Tran",
@@ -19,14 +19,17 @@
   },
   "dependencies": {
     "cors": "^2.8.6",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "mongodb": "^7.1.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
-    "eslint": "^9.39.2",
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-vue": "^10.7.0",
-    "globals": "^17.2.0",
+    "globals": "^17.3.0",
     "prettier": "^3.8.1"
+  },
+  "overrides": {
+    "ajv": "^8.18.0"
   }
 }
