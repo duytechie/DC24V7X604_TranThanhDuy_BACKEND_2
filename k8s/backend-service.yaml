@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: contactbook-backend
+  labels:
+    app: contactbook-backend
+spec:
+  selector:
+    app: contactbook-backend
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: ClusterIP

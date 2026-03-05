@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contactbook-backend
+  labels:
+    app: contactbook-backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: contactbook-backend
+  template:
+    metadata:
+      labels:
+        app: contactbook-backend
+    spec:
+      containers:
+        - name: backend
+          image: contactbook-backend:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          env:
+            - name: PORT
+              value: "3000"
+            - name: MONGO_URI
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secrets
+                  key: MONGO_URI
+            - name: APPLICATIONINSIGHTS_CONNECTION_STRING
+              valueFrom:
+                secretKeyRef:
+                  name: backend-secrets
+                  key: APPLICATIONINSIGHTS_CONNECTION_STRING
+                  optional: true
