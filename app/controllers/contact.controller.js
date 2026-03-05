@@ -18,21 +18,21 @@ export const create = async (req, res, next) => {
   }
 };
 export const findAll = async (req, res, next) => {
-  let documents = [];
   try {
     const contactService = new ContactService(MongoDB.client);
     const { name } = req.query;
+    let documents;
     if (name) {
       documents = await contactService.findByName(name);
     } else {
       documents = await contactService.find({});
     }
-  } catch (error) {
+    return res.send(documents);
+  } catch {
     return next(
       new ApiError(500, "An error occurred while retrieving contacts"),
     );
   }
-  return res.send(documents);
 };
 
 export const findOne = async (req, res, next) => {
@@ -43,7 +43,7 @@ export const findOne = async (req, res, next) => {
       return next(new ApiError(404, "Contact not found"));
     }
     return res.send(document);
-  } catch (error) {
+  } catch {
     return next(
       new ApiError(500, `Error retrieving contact with id=${req.params.id}`),
     );
@@ -61,7 +61,7 @@ export const update = async (req, res, next) => {
       return next(new ApiError(404, "Contact not found"));
     }
     return res.send({ message: "Contact was updated successfully" });
-  } catch (error) {
+  } catch {
     return next(
       new ApiError(500, `Error updating contact with id=${req.params.id}`),
     );
@@ -76,7 +76,7 @@ export const delete_ = async (req, res, next) => {
       return next(new ApiError(404, "Contact not found"));
     }
     return res.send({ message: "Contact was deleted successfully" });
-  } catch (error) {
+  } catch {
     return next(
       new ApiError(500, `Error deleting contact with id=${req.params.id}`),
     );
@@ -90,7 +90,7 @@ export const deleteAll = async (_req, res, next) => {
     return res.send({
       message: `${deletedCount} contacts were deleted successfully`,
     });
-  } catch (error) {
+  } catch {
     return next(
       new ApiError(500, "An error occurred while removing all contacts"),
     );

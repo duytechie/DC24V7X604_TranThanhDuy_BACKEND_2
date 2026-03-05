@@ -17,7 +17,7 @@ export const login = async (req, res, next) => {
       user: { username },
       token: "demo-token",
     });
-  } catch (error) {
+  } catch {
     return next(new ApiError(500, "An error occurred while processing login"));
   }
 };
