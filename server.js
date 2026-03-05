@@ -1,7 +1,18 @@
 import "dotenv/config";
+import appInsights from "applicationinsights";
 import app from "./app.js";
 import config from "./app/config/index.js";
 import MongoDB from "./app/utils/mongodb.utils.js";
+
+if (process.env.APPLICATIONINSIGHTS_CONNECTION_STRING) {
+  appInsights
+    .setup(process.env.APPLICATIONINSIGHTS_CONNECTION_STRING)
+    .setAutoDependencyCorrelation(true)
+    .setAutoCollectRequests(true)
+    .setAutoCollectDependencies(true)
+    .setAutoCollectExceptions(true)
+    .start();
+}
 
 async function startServer() {
   try {

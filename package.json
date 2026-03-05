@@ -15,9 +15,13 @@
   "type": "module",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "lint": "eslint .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "applicationinsights": "^3.14.0",
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
@@ -30,8 +34,5 @@
     "eslint-config-prettier": "^10.1.8",
     "globals": "^17.3.0",
     "prettier": "^3.8.1"
-  },
-  "overrides": {
-    "ajv": "^8.18.0"
   }
 }
