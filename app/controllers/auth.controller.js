@@ -1,8 +1,5 @@
 import ApiError from "../api-error.js";
 
-const TEST_USERNAME = "testlogin";
-const TEST_PASSWORD = "P@ssw0rd";
-
 export const login = async (req, res, next) => {
   try {
     const { username, password } = req.body ?? {};
@@ -11,7 +8,7 @@ export const login = async (req, res, next) => {
       return next(new ApiError(400, "Username and password are required"));
     }
 
-    if (username !== TEST_USERNAME || password !== TEST_PASSWORD) {
+    if (username !== process.env.TEST_USERNAME || password !== process.env.TEST_PASSWORD) {
       return next(new ApiError(401, "Invalid username or password"));
     }
 
